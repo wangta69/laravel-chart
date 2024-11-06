@@ -1,0 +1,33 @@
+{
+  "name": "wangta69/laravel-chart",
+  "description": "Create chart data for various js",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pondol",
+      "email": "wangta69@gmail.com",
+      "homepage": "https://www.onstory.fun"
+    }
+],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Pondol\\VisitorsStatistics\\": "src/"
+    }
+  },
+  "autoload-dev": {
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Pondol\\Charts\\ChartsServiceProvider"
+      ]
+    }
+  }
+}
