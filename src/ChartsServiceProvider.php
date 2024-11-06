@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 use Pondol\Charts\Console\Commands\InstallCommand;
 
+use Pondol\Charts\Builder\ChartJs;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ class ChartsServiceProvider extends ServiceProvider
     if ($this->app->runningInConsole()) {
       
     }
+
+    $this->app->singleton('chartjs-facade', function () {
+      return new ChartJs();
+    });
   }
 
   /**
@@ -49,6 +54,8 @@ class ChartsServiceProvider extends ServiceProvider
     $this->commands([
       InstallCommand::class
     ]);
+
+    $this->loadViewsFrom(__DIR__.'/resources/views', 'chart');
     
     // $this->app->booted(function () {
     //     // Since maxmind database is updated every first Thursday of the month
