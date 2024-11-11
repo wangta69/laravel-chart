@@ -1,9 +1,11 @@
 <script>
 var ctx = document.getElementById('{!! $chart->element !!}').getContext('2d');
-var data = {
-  labels: {!! $chart->labels !!},
-  datasets: {!! $chart->datasets !!}
-};
+var data = {};
+@isset($chart->labels)
+data.labels = {!! $chart->labels !!};
+@endisset
+data.datasets = {!! $chart->datasets !!};
+
 var options = {!! $chart->options !!}
 
 var config = {
