@@ -205,11 +205,18 @@ class Dataset
 
     for($i=0; $i<count($this->group[$this->index]['data']); $i++) {
       $luminosityIndex = floor($i / count($hues));
-      $options = [
-        'format'=>'rgb', 
-        'hue'=>[$hues[$i]], 
-        'luminosity'=>$luminosity[$luminosityIndex]
-      ];
+      $j = $i % count($hues);
+      try {
+        $options = [
+          'format'=>'rgb', 
+          'hue'=>[$hues[$j]], 
+          'luminosity'=>$luminosity[$luminosityIndex]
+        ];
+      } catch(\ErrorException $e) {
+        $options = [
+          'format'=>'rgb'
+        ];
+      }
       array_push($randomcolors, RandomColor::one($options));
     }
 
