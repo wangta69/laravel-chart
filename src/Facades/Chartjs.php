@@ -18,8 +18,8 @@ class Chartjs extends Facade
 
   public static function refresh()
   {
-      static::clearResolvedInstance(static::getFacadeAccessor());
+    static::clearResolvedInstance(static::getFacadeAccessor());
 
-      return static::getFacadeRoot();
+    return static::getFacadeRoot();
   }
 }

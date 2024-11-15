@@ -11,20 +11,6 @@ use Illuminate\Support\Arr;
 
 class ChartJs
 {
-  // Chart.js/4
-  // private $options;
-  // private $labels = [];
-  // private $defaultOptions = [
-  //   'responsive'=> false,
-  //   'plugins'=> [
-  //     'legend'=> ['position'=> 'top'],
-  //     'title'=> [
-  //       'display'=> true,
-  //       'text' => 'aaaaa'
-  //     ]
-  //   ]
-  // ];
-
   public function __construct()
   {
     $this->options = new Options($this);
@@ -72,41 +58,9 @@ class ChartJs
    */
   public function options($callback)
   {
-    // $option = new Options($this);
     $callback($this->options);
     return $this;
   }
-/*
-
-  public function options(array $options)
-  {
-    // $options = array_merge_recursive($options, $this->defaultOptions);
-    
-    // $options = array_merge($options, $this->defaultOptions);
-    // $options = array_merge($this->defaultOptions, $options);
-    
-    $options = array_replace_recursive($this->defaultOptions, $options);
-     return $this->set('options', $options);
-  }
-  
-  */
-  
-
-  // public function applyRandomBarColor() {
-  //  $backgroundColor = [];
-  //  $borderColor = [];
-
-  //   $randomcolors = RandomColor::many(count($this->datasets[0]['data']), array('format'=>'rgb', 'luminosity'=>'bright'));
-  //   foreach( $randomcolors as $c) {
-  //     array_push($borderColor, 'rgba('.$c["r"].', '.$c["g"].', '.$c["b"].', 1)');
-  //     array_push($backgroundColor, 'rgba('.$c["r"].', '.$c["g"].', '.$c["b"].', 0.8)');
-  //   }
-
-  //   $this->datasets[0]['backgroundColor'] = $backgroundColor;
-  //   $this->datasets[0]['borderColor'] = $borderColor;
-
-  //   return $this;
-  // }
 
 
 /**
@@ -140,7 +94,6 @@ class ChartJs
     if (isset($this->labels)) $chart->labels = json_encode($this->labels);
     $chart->options = json_encode($this->options->build());
     $chart->type = $this->type;
-
     return $chart;
   }
 }
