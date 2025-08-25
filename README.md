@@ -6,6 +6,7 @@
 composer require wangta69/laravel-chart
 ```
 
+
 ## How to
 ```
 use Pondol\Charts\Facades\Chartjs;
@@ -33,7 +34,10 @@ $chart = Chartjs::
   ->build();
 ```
 - blade
+> blade 에서는 아래 처럼 처리합니다.
 ```
+<canvas id="dailyChart"></canvas> // id는 위의 element 을 입력
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <x-chart::chartjs :chart="$chart"/>
 ```
 
